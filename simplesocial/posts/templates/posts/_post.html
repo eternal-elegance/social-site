@@ -1,0 +1,23 @@
+<div class="card mb-3 shadow mb-5 p-2 bg-white rounded ml-md-2 col-xs-12 col-md-5 col-lg-3">
+  <div class="post-media card-body">
+    <h5 class="card-text text-muted">{{ post.message_html|safe }}</h5>
+    <div class="media-body">
+      <h6 class="media-heading card-title">
+        <span class="username  text-dark">
+          <a href="{% url 'posts:for_user' username=post.user.username %}">@{{post.user.username}}</a>
+        </span>
+        <time class="time">
+          <a href="{% url 'posts:single' username=post.user.username pk=post.pk %}">{{ post.created_at }}</a>
+        </time>
+      </h6>
+      <div class="media-footer mt-3">
+        {% if user.is_authenticated and post.user == user and not hide_delete %}
+        <a href="{% url 'posts:delete' pk=post.pk %}" class="btn btn-danger" title='delete'>
+          <span aria-hidden='true'>Delete</span>
+          <span class="text-danger icon-label">Delete</span>
+        </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+{% extends 'posts/post_base.html' %}
+
+
+{% block post_title %}
+Post List
+{% endblock post_title %}
+
+
+{% block pre_post_content %}
+<div class="col-md-4">
+
+  {% if request.user.is_authenticated %}
+  <div class="card card-with-shadow">
+    <div class="content">
+      <h5 class="title">Your Groups</h5>
+      <ul class="list-unstyled">
+
+        {% for member_group in get_user_groups %}
+        <!--refer notes.#32-->
+        <li class="li-with-bullet">
+          <a href="{% url 'groups:single' slug=member_group.group.slug %}">{{ member_group.group.name }}</a>
+        </li>
+        {% empty %}
+        <h2>Sorry no groups found!!</h2>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+
+  <div class="card card-with-shadow">
+    <div class="content">
+      <h5 class="title">All Groups</h5>
+      <ul class="list-unstyled">
+        {% for other_group in get_other_groups %}
+        <!-- #33 -->
+        <li class="group list-with-buttet">
+          <a href="{% url 'groups:single' slug=other_group.slug %}">{{ other_group.name }}</a>
+        </li>
+        {% empty %}
+        <h5 class="title">Sorry No groups!!</h5>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+</div>
+{% endblock pre_post_content %}
+
+
+{% block post_content %}
+<div class="col-md-8 bg-dark">
+
+  {% for post in post_list %}
+  {% include 'posts/_post.html' %}
+  {% empty %}
+  <h5 class="title">Sorry no posts!!!</h5>
+  {% endfor %}
+
+</div>
+{% endblock post_content %}

@@ -1,0 +1,13 @@
+{% extends 'posts/post_base.html' %}
+
+
+{% block post_title %}
+Detail Page
+{% endblock post_title %}
+
+
+{% block post_content %}
+<div class="container-fluid mt-5">
+  {% include 'posts/_post.html' %}
+</div>
+{% endblock post_content %}

@@ -1,0 +1,27 @@
+{% extends 'posts/post_base.html' %}
+
+
+{% block post_title %}
+{{ post_user.username|title }}'s Posts
+{% endblock post_title %}
+
+
+{% block pre_post_content %}
+<div class="col-md-6">
+  <h4 class="display-4 text-muted">@{{ post_user.username }}</h4>
+</div>
+{% endblock pre_post_content %}
+
+
+
+{% block post_content %}
+<div class="row">
+
+  {% for post in post_list %}
+  {% include 'posts/_post.html' %}
+  {% empty %}
+  <h3 class="title">Sorry This user hasn't posted anything yet!!</h3>
+  {% endfor %}
+
+</div>
+{% endblock post_content %}

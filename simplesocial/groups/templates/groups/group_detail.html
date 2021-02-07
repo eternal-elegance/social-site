@@ -1,0 +1,40 @@
+{% extends 'groups/group_base.html' %}
+
+{% block title %}
+Star Social | Group Detail
+{% endblock %}
+
+{% block pregroup %}
+<div class="shadow-sm p-3 mb-5 bg-white rounded col-sm-12">
+  <h6 class="display-4 text-muted">{{ group.name }}</h6>
+
+  <button type="button" class="btn btn-light mb-2">
+    Member Count: <span class="badge badge-pill badge-light">{{ group.members.count }}</span>
+  </button>
+
+  <div class="content col-md-8">
+    {% if user in group.members.all %}
+    <!-- 21 -->
+    <a href="{% url 'groups:leave' slug=group.slug %}" class="btn btn-lg btn-fill btn-danger">Leave</a>
+    {% else %}
+    <a href="{% url 'groups:join' slug=group.slug %}" class="btn btn-lg btn-fill btn-primary">Join</a>
+    {% endif %}
+  </div>
+</div>
+{% endblock pregroup %}
+
+
+{% block group_content %}
+<div class="container">
+  <div class="row">
+    {% if group.posts.count == 0 %}
+    <h6 class="display-4 text-muted">No posts in this group!!!</h2>
+      {% else %}
+      {% for post in group.posts.all %}
+      {% include 'posts/_post.html' %}
+      <!--22-->
+      {% endfor %}
+      {% endif %}
+  </div>
+</div>
+{% endblock group_content %}

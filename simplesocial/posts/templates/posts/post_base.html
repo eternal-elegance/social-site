@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+Star Social | {% block post_title %}{% endblock post_title %}
+{% endblock title %}
+
+
+{% block content %}
+<div class="posts-page">
+  <div class="container">
+    <div class="row">
+
+      {% block pre_post_content %}{% endblock pre_post_content %}
+      {% block post_content %}{% endblock post_content %}
+      {% block post_post_content %}{% endblock post_post_content %}
+
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

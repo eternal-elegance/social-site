@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;1,400&display=swap&family=Sriracha&display=swap');
+
+:root {
+  --primary-font: 'Montserrat', sans-serif;
+  --styleish-font: 'Lato', sans-serif;
+  --theme-color-pr: rgb(88, 34, 195);
+  --theme-color-se: linear-gradient(52deg, rgba(88, 34, 195, 0.8575630081134016) 0%, rgb(0, 0, 0) 100%);
+}
+
+#thanks {
+  font-family: var(--styleish-font);
+  /* font-style: italic; */
+  font-weight: 700;
+  background: var(--theme-color-pr);
+  background: var(--theme-color-se);
+  color: var(--light);
+}
+
+#test {
+  font-family: var(--styleish-font);
+  /* font-style: italic; */
+  font-weight: 700;
+  background: var(--theme-color-pr);
+  background: var(--theme-color-se);
+  color: var(--light);
+}
+
+#mynav {
+  background: rgb(88, 34, 195);
+  background: linear-gradient(174deg, rgba(88, 34, 195, 1) 0%, rgba(0, 0, 0, 1) 100%);
+  font-family: var(--primary-font);
+}
+
+#brand {
+  border: 2px solid white;
+  border-left: none;
+  border-right: none;
+  border-radius: 10px;
+  padding: 0 3px 0 3px;
+}
+
+#mynav ul li:hover {
+  background: var(--theme-color-pr);
+  background: var(--theme-color-se);
+  border-radius: 10px;
+  /* border-bottom: 1px solid white; */
+  /* border-left: 1px solid white; */
+}
+
+.title {
+  font-family: 'Sriracha', cursive;
+  font-weight: 400;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background: rgb(0, 0, 0);
+  margin: 0;
+  /* position: absolute;
+  z-index: 2; */
+}
+
+#canvas {
+  position: absolute;
+  height: 100%;
+  /* object-fit: cover; */
+  width: 100%;
+  z-index: -1;
+  background-color: black;
+}
+
+/* #contain {
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  z-index: 2;
+  left: 70px;
+} */

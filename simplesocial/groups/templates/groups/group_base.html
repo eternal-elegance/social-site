@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}
+Star Social | Group
+{% endblock %}
+
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <!-- 20 -->
+    {% block pregroup %}{% endblock %}
+    {% block group_content %}{% endblock %}
+    {% block postgroup %}{% endblock %}
+  </div>
+</div>
+{% endblock content %}

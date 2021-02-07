@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+{% block title %}
+Star Social | SignUp
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+  <h1 class="display-3 ytext-center">
+    SignUp
+  </h1>
+  <form class="form-group" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" class="btn btn-primary" value="SignUp">
+  </form>
+</div>
+{% endblock %}

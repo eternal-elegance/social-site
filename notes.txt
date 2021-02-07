@@ -1,0 +1,94 @@
+static also called assets
+master.css to keep all top level css
+
+#1 This returns the active usermodel, or a custom model or the User itself. This allows to call things off of the current users session
+
+#2 A form that creates a user, with no privileges, from the given username and password
+
+#3 password2 is for confirm password
+
+#4 Here we are not instanciating the class but we are setting the class attribute to the following
+
+#5 redirects the users after they hit submit i.e. the have signedup. If reverse was used then it would redirect the users and not let them signup
+
+## installed django-bootstrap3 to format forms nicely
+
+#6 This urls helps django to do the under-the-hood authentication stuff by these urls
+
+## here we don't need to register our user model because it's django built-in model
+
+## Test and Thanks page in urls directly.
+
+#7 static files array name
+
+## if some html file becomes increasingly large the we can divide it and inject html from another file (_filename.html) file.
+
+#8 slugify - Convert to ASCII if 'allow_unicode' is False. Convert spaces to hyphens. Remove characters that aren't alphanumerics, underscores, or hyphens. Convert to lowercase. Also strip leading and trailing whitespace.
+
+#9 misaka does link imbedding and for putting links and markdown texts
+
+#10 The groupmembers model will have 2 remote field column of group and user which contains information about the groups and registered users respectively. The idea behind is that a groupmember can be user who may belong to various groups.
+
+#11---
+#12
+
+#13- unique so that various group names do not overlap each other.
+
+#14 - unique so that the we dont encounter any instakes calling a url code and also the group name and slug name doesnot accidently overlap eachother.
+
+#15 - This is incase we need a html version of the description
+
+#16 - Django will automatically generate a table to manage many-to-many relationships. However, if you want to manually specify the intermediary table, you can use the through option to specify the Django model that represents the intermediate table that you want to use.
+User->(Many)Groups_via_>groupmember model which then maps both.
+
+#17 This is to put markdown form of the description
+
+#18 auto-now assigns the current creation date time of the post
+
+#19 In this way every message is linked with a unique user
+
+#20 It's not like we are gonna use every block but it's there if we need
+
+#21 The idea behind is that if the current user is in the list of members of the group the shown him leave button else show join button
+
+#22 This include is somewhat like extends but here we are including the content in the middle of the document because of readablity purposes so that one file doesnot contain a lot of data.
+_filename is for the developer to understand that it is an included html file and nothing special.
+
+#23 Here user.is_authenticated is used where django does all the heavy lifting behind the scenes int authentication system which makes our job a bit easier
+
+#24 This link name gives somewhat of a social media feel with the @username call
+Also It's a link to the all posts view of the user
+
+#25 object_list is a list of all group objects
+
+#26 Sometimes it can make sense to be able to add associated records at the same time. For example, it may make sense to have both the book information and information about the specific copies you've got on the same detail page.
+
+You can do this by declaring inlines, of type TabularInline (horizontal layout) or StackedInline (vertical layout, just like the default model layout).
+
+#27 This is a mixin which specifies the Models related to this class model.
+The User related to this Post
+The Group ralated to the Post
+
+#28  When the database is queried then to check if or not we are able to fetch this user's posts using the exact username of not.
+
+#29 setting the post_user to the current user who posted to the context
+
+HERE I HALTED BECAUSE OF LACK OF EXPERIENCE IN DJANGO I WAS NOT ABLE TO GRASP SOME OF THE BASIC CONCEPTS. I WILL COME BACK TO THIS PROJECT WHEN AFTER GETTING SOME EXTERNAL PRACTICE AND UNDERSTANDING THE CORE CONCEPTS.THEN REVIEW THE PREVIOUS LECTURES AND RESUME CODEING ALONG FROM LEC9 ONWARDS (BUT FIRST REVIEW ALL)
+
+#30 The queryset holds all the related objects of the current user
+
+form_valid=Saves the form instance, sets the current object for the view, and redirects to get_success_url(). That object is refered in here
+
+#31 Using this we can set the message displayed on success of this event
+
+#32 This helps us to register the groups related_name to the template library which can the be refferenced from elsewhere in the whole application
+
+#33 Here other_group itself is a group but not sure from where it's comming ****
+
+## aria-hidden means that this particular element will be ignored by screen-readers.
+
+#34 messages is used to show some messages to the user
+
+#35 This method defines where to go when this view is executed This redirects to the groups detail page with the slug of the current group
+
+#36 This method defines what the users are permitted to do. If this was'nt there then we could get broken pages when any user who is not in the group tries to leave the group etc.
